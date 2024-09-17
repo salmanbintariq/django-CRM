@@ -1,0 +1,45 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Customer Record{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center mb-4" style="text-decoration: underline double;">Customer Record</h2>
+    
+    <!-- Displaying Customer Details -->
+    <div class="card">
+        <div class="card-header">
+            <h3>{{ customer.first_name }} {{ customer.last_name }}</h3>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">ID:</dt>
+                <dd class="col-sm-9">{{ customer.id }}</dd>
+                
+                <dt class="col-sm-3">First Name:</dt>
+                <dd class="col-sm-9">{{ customer.first_name }}</dd>
+                
+                <dt class="col-sm-3">Last Name:</dt>
+                <dd class="col-sm-9">{{ customer.last_name }}</dd>
+                
+                <dt class="col-sm-3">Address:</dt>
+                <dd class="col-sm-9">{{ customer.address }}</dd>
+                
+                <dt class="col-sm-3">City:</dt>
+                <dd class="col-sm-9">{{ customer.city }}</dd>
+                
+                <dt class="col-sm-3">State:</dt>
+                <dd class="col-sm-9">{{ customer.state }}</dd>
+                
+                <dt class="col-sm-3">Zip Code:</dt>
+                <dd class="col-sm-9">{{ customer.zipcode }}</dd>
+            </dl>
+        </div>
+        <div class="card-footer">
+            <a href="{% url 'main:home' %}" class="btn btn-secondary">Back</a>
+            <a href="{% url 'main:delete' customer.id %}" class="btn btn-danger">Delete</a>
+            <a href="{% url 'main:edit_record' customer.id %}" class="btn btn-success">Edit</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
